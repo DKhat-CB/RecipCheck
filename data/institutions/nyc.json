@@ -9,15 +9,50 @@
     "membership_url": "https://www.metmuseum.org/join-and-give/membership",
     "programs": [],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 110,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 200,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 300,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 12,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 30,
+      "child_price_usd": 0,
+      "child_free_under_age": 12
+    },
     "source_urls": [
       "https://www.metmuseum.org/join-and-give/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Historically not part of NARM/reciprocal networks; verify, likely join-direct only."
   },
@@ -31,15 +66,50 @@
     "membership_url": "https://www.moma.org/membership/",
     "programs": [],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 110,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 170,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 300,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 16,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 30,
+      "child_price_usd": 0,
+      "child_free_under_age": 16
+    },
     "source_urls": [
       "https://www.moma.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Historically not in reciprocal networks; verify."
   },
@@ -53,19 +123,50 @@
     "membership_url": "https://whitney.org/membership",
     "programs": [],
     "reciprocity_overrides": {},
-    "tiers": [],
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 85,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 135,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 300,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 18,
+        "reciprocity_explicit": false
+      }
+    ],
     "general_admission": {
-      "adult_price_usd": null,
-      "child_price_usd": null,
-      "child_free_under_age": null
+      "adult_price_usd": 30,
+      "child_price_usd": 0,
+      "child_free_under_age": 18
     },
     "source_urls": [
       "https://whitney.org/membership"
     ],
     "last_verified": "2026-06-29",
-    "confidence": 0.2,
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Verify reciprocal participation."
   },
@@ -81,15 +182,54 @@
       "NARM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 90,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": true
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 250,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 12,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 30,
+      "child_price_usd": 0,
+      "child_free_under_age": 12
+    },
     "source_urls": [
       "https://www.guggenheim.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -101,19 +241,42 @@
     "lat": 40.7813,
     "lng": -73.974,
     "membership_url": "https://www.amnh.org/join-support/membership",
-    "programs": [
-      "ASTC"
-    ],
+    "programs": [],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Dual",
+        "annual_price_usd": 120,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 165,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 3,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 28,
+      "child_price_usd": 16,
+      "child_free_under_age": 3
+    },
     "source_urls": [
       "https://www.amnh.org/join-support/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Verify ASTC participation."
   },
@@ -129,15 +292,54 @@
       "NARM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 75,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 125,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": true
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 175,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 19,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 16,
+      "child_price_usd": 0,
+      "child_free_under_age": 19
+    },
     "source_urls": [
       "https://www.brooklynmuseum.org/support/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -154,15 +356,55 @@
       "TIME_TRAVELERS"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 80,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": true
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 185,
+        "programs_unlocked": [
+          "NARM",
+          "TIME_TRAVELERS"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 5,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 24,
+      "child_price_usd": 6,
+      "child_free_under_age": 5
+    },
     "source_urls": [
       "https://www.nyhistory.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -178,15 +420,32 @@
       "ASTC"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 190,
+        "programs_unlocked": [
+          "ASTC"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 5,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 36,
+      "child_price_usd": 26,
+      "child_free_under_age": 5
+    },
     "source_urls": [
       "https://www.intrepidmuseum.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Verify ASTC participation."
   },
@@ -206,59 +465,30 @@
     },
     "tiers": [
       {
-        "name": "WCS Membership",
-        "annual_price_usd": null,
-        "programs_unlocked": [],
-        "adults_admitted": null,
-        "children_admitted": null,
-        "named_guests_allowed": null,
-        "child_free_under_age": null,
-        "reciprocity_explicit": false
-      },
-      {
-        "name": "Conservation Membership",
-        "annual_price_usd": null,
-        "programs_unlocked": [],
-        "adults_admitted": null,
-        "children_admitted": null,
-        "named_guests_allowed": null,
-        "child_free_under_age": null,
-        "reciprocity_explicit": false
-      },
-      {
-        "name": "Virtual Membership",
-        "annual_price_usd": null,
-        "programs_unlocked": [],
-        "adults_admitted": null,
-        "children_admitted": null,
-        "named_guests_allowed": null,
-        "child_free_under_age": null,
-        "reciprocity_explicit": false
-      },
-      {
-        "name": "Gift Membership",
-        "annual_price_usd": null,
-        "programs_unlocked": [],
-        "adults_admitted": null,
-        "children_admitted": null,
-        "named_guests_allowed": null,
-        "child_free_under_age": null,
-        "reciprocity_explicit": false
+        "name": "Family",
+        "annual_price_usd": 164,
+        "programs_unlocked": [
+          "AZA"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 3,
+        "reciprocity_explicit": true
       }
     ],
     "general_admission": {
-      "adult_price_usd": null,
-      "child_price_usd": null,
-      "child_free_under_age": null
+      "adult_price_usd": 41.95,
+      "child_price_usd": 31.95,
+      "child_free_under_age": 3
     },
     "source_urls": [
       "https://bronxzoo.com/membership"
     ],
     "last_verified": "2026-06-29",
-    "confidence": 0.3,
+    "confidence": 0.9,
     "flags": [
-      "needs_manual",
-      "roster_page_conflict"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -276,15 +506,32 @@
     "reciprocity_overrides": {
       "AZA": "fifty_percent"
     },
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "AZA"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 3,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 34.95,
+      "child_price_usd": 29.95,
+      "child_free_under_age": 3
+    },
     "source_urls": [
       "https://nyaquarium.com/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -300,20 +547,42 @@
       "AHS"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 90,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 175,
+        "programs_unlocked": [
+          "AHS"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 2,
+        "reciprocity_explicit": true
+      }
+    ],
     "general_admission": {
-      "adult_price_usd": null,
-      "child_price_usd": null,
-      "child_free_under_age": null
+      "adult_price_usd": 35,
+      "child_price_usd": 15,
+      "child_free_under_age": 2
     },
     "source_urls": [
       "https://www.nybg.org/membership/"
     ],
     "last_verified": "2026-06-29",
-    "confidence": 0.1,
+    "confidence": 0.9,
     "flags": [
-      "needs_manual",
-      "roster_page_conflict"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -329,15 +598,42 @@
       "AHS"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 75,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "AHS"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 12,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 18,
+      "child_price_usd": 0,
+      "child_free_under_age": 12
+    },
     "source_urls": [
       "https://www.bbg.org/support/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -353,20 +649,32 @@
       "ACM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 200,
+        "programs_unlocked": [
+          "ACM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 1,
+        "reciprocity_explicit": true
+      }
+    ],
     "general_admission": {
-      "adult_price_usd": null,
-      "child_price_usd": null,
-      "child_free_under_age": null
+      "adult_price_usd": 16,
+      "child_price_usd": 16,
+      "child_free_under_age": 1
     },
     "source_urls": [
       "https://cmom.org/membership/"
     ],
     "last_verified": "2026-06-29",
-    "confidence": 0.1,
+    "confidence": 0.9,
     "flags": [
-      "needs_manual",
-      "roster_page_conflict"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -382,15 +690,32 @@
       "ACM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "ACM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 1,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 13,
+      "child_price_usd": 13,
+      "child_free_under_age": 1
+    },
     "source_urls": [
       "https://www.brooklynkids.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -406,15 +731,32 @@
       "ASTC"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "ASTC"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 2,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 22,
+      "child_price_usd": 16,
+      "child_free_under_age": 2
+    },
     "source_urls": [
       "https://nysci.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -428,15 +770,40 @@
     "membership_url": "https://www.cooperhewitt.org/membership/",
     "programs": [],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 70,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 18,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 22,
+      "child_price_usd": 0,
+      "child_free_under_age": 18
+    },
     "source_urls": [
       "https://www.cooperhewitt.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": "Smithsonian; verify reciprocal participation."
   },
@@ -452,15 +819,54 @@
       "NARM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual",
+        "annual_price_usd": 80,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual",
+        "annual_price_usd": 125,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": true
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 175,
+        "programs_unlocked": [
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 19,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 20,
+      "child_price_usd": 0,
+      "child_free_under_age": 19
+    },
     "source_urls": [
       "https://www.mcny.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -476,15 +882,32 @@
       "AHS"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 75,
+        "programs_unlocked": [
+          "AHS"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 3,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 6,
+      "child_price_usd": 4,
+      "child_free_under_age": 3
+    },
     "source_urls": [
       "https://queensbotanical.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   },
@@ -501,15 +924,33 @@
       "NARM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Family",
+        "annual_price_usd": 150,
+        "programs_unlocked": [
+          "AHS",
+          "NARM"
+        ],
+        "adults_admitted": 2,
+        "children_admitted": 6,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 7,
+        "reciprocity_explicit": true
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": 10,
+      "child_price_usd": 6,
+      "child_free_under_age": 7
+    },
     "source_urls": [
       "https://www.wavehill.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.9,
     "flags": [
-      "needs_manual"
+      "manually_verified"
     ],
     "notes": ""
   }
