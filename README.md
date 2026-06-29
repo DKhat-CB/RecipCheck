@@ -12,6 +12,30 @@ institutions with intended visits/year. The tool returns the best home membershi
 what it covers, what it cannot cover and why (the counterintuitive **90-mile rule**), and
 estimated annual savings versus paying per visit.
 
+## Use it online (share this)
+
+The interface deploys to **GitHub Pages** as an installable web app:
+
+> **https://dkhat-cb.github.io/recipcheck/**
+
+Send that link to anyone — it runs on any phone or desktop browser, no install required.
+
+**Install it like an app (Android / iOS / desktop).** RecipCheck is a PWA, so on a phone you
+can add it to your home screen and it launches fullscreen with its own icon and works offline:
+- **Android (Chrome):** open the link → menu (⋮) → **Install app** / **Add to Home screen**.
+- **iOS (Safari):** open the link → Share → **Add to Home Screen**.
+- **Desktop (Chrome/Edge):** an **install** icon appears in the address bar.
+
+**One-time setup to turn the page on** (done once by the repo owner): repo **Settings → Pages
+→ Build and deployment → Source → "GitHub Actions"**. After that, every push to the default
+branch redeploys automatically via `.github/workflows/pages.yml` (it publishes the `web/`
+folder). The live URL is shown in each workflow run's summary and on the Pages settings page.
+
+A native Play-Store Android app isn't necessary — but if you ever want one, the same PWA can
+be wrapped into an APK/AAB with [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap)
+(a Trusted Web Activity pointing at the URL above); that needs the Android SDK and a signing
+key and is out of scope here.
+
 ## How it works
 
 A four-stage pipeline. Stages 1–2 produce a versioned dataset; stages 3–4 consume it and
