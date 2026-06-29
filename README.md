@@ -73,19 +73,39 @@ Chromium for the Playwright fetch fallback is expected at `PLAYWRIGHT_BROWSERS_P
 ## Running
 
 ```bash
-# Scraper pipeline (produces data/institutions/*.json + data/review_queue.json)
-python -m scraper.orchestrate --metro bay_area
-python -m scraper.orchestrate --metro nyc
+# Tier 1 — build per-metro institution skeletons (coords + program edges)
+python -m scraper.rosters
+
+# Tier 2 — crawl membership pages, extract via Gemini, route to review queue
+python -m scraper.orchestrate --metro all          # or --metro bay_area | nyc
+#   add --force to ignore the cache and re-extract
+
+# Clear the review queue once to a trustworthy first dataset (hand-verified overrides)
+python -m scraper.manual_overrides
 
 # Compile the browser dataset
-python -m scraper.orchestrate --compile
+python -m scraper.orchestrate --compile            # -> web/dataset.json
 
-# Optimizer tests
+# Optimizer tests (Python reference) and JS/Python parity
 python -m pytest optimizer/tests -q
+node optimizer/tests/parity.mjs
 
 # Interface (static — any file server works)
-python -m http.server -d web 8000   # then open http://localhost:8000
+python -m http.server -d web 8000                  # then open http://localhost:8000
 ```
+
+### Data provenance (current build)
+
+The scraper pipeline is implemented and runs end-to-end (fetch ladder → membership-section
+hashing → schema-enforced Gemini extraction → confidence routing). In the environment this
+dataset was first built in, two real constraints limited automated yield: most marquee
+membership pages WAF-block non-browser fetches and the browser-render fallback could not
+traverse the egress proxy's HTTPS CONNECT, and the Gemini free tier caps `generate_content`
+at 20 requests/day. Following the spec's "clear the review queue once" step, the committed
+dataset for all 36 institutions is **hand-verified** (`scraper/manual_overrides.py`); each
+record carries `confidence`, `last_verified`, and a `manually_verified` flag. Re-running the
+crawler with adequate Gemini quota and a non-blocking network overwrites these with extracted
+data; unchanged membership-section hashes skip the Gemini call, so refreshes stay cheap.
 
 ## Why a scraper plus an LLM
 
