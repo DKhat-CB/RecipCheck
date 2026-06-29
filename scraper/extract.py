@@ -58,6 +58,7 @@ Rules:
 - Report all membership tiers found, not only the reciprocal ones.
 - Set confidence below 0.6 whenever anything material is uncertain, so the record routes to human review.
 - Capture general admission adult and child prices and the free-child age where present; these drive the savings estimate.
+- child_free_under_age is the age BELOW which children enter free. If the page says "N and under free" (e.g. "4 and under free"), set it to N+1, because children up to and including age N are free. Apply the same rule to a tier's child_free_under_age.
 
 Page text:
 {page}
