@@ -1,7 +1,7 @@
 {
   "build": {
-    "build_id": "20260629-170313",
-    "built_at": "2026-06-29T17:03:13.914269+00:00",
+    "build_id": "20260629-170707",
+    "built_at": "2026-06-29T17:07:07.914985+00:00",
     "stale_after_days": 120
   },
   "programs": {
@@ -845,13 +845,25 @@
           "reciprocity_explicit": true
         },
         {
-          "name": "Ocean Advocate",
-          "annual_price_usd": 500,
+          "name": "Family",
+          "annual_price_usd": 180,
           "programs_unlocked": [
             "AZA"
           ],
           "adults_admitted": 2,
           "children_admitted": 4,
+          "named_guests_allowed": 0,
+          "child_free_under_age": 5,
+          "reciprocity_explicit": true
+        },
+        {
+          "name": "Premium",
+          "annual_price_usd": 250,
+          "programs_unlocked": [
+            "AZA"
+          ],
+          "adults_admitted": 2,
+          "children_admitted": 0,
           "named_guests_allowed": 2,
           "child_free_under_age": 5,
           "reciprocity_explicit": true

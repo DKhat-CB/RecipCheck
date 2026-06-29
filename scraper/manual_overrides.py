@@ -100,7 +100,8 @@ OVERRIDES: dict[str, dict] = {
         "src": ["https://www.sfzoo.org/become-a-member/"], "approx": True},
     "mont-mba": {"ga": ga(60, 45, 5),
         "tiers": [tier("Individual", 125, ["AZA"], adults=1, free=5),
-                  tier("Ocean Advocate", 500, ["AZA"], adults=2, kids=4, guests=2, free=5)],
+                  tier("Family", 180, ["AZA"], adults=2, kids=4, free=5),
+                  tier("Premium", 250, ["AZA"], adults=2, guests=2, free=5)],
         "src": ["https://www.montereybayaquarium.org/support-us/become-a-member"]},
     # Reciprocal participation could NOT be confirmed from Filoli's own page (the prices were
     # sourced; the AHS/NARM tags were an unverified Tier-1 guess and are dropped). Treated as
