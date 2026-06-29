@@ -1,0 +1,19 @@
+# Secrets — the Gemini key lives here, never committed
+.env
+
+# Scraper raw HTML cache (regenerable; can be large)
+data/raw_cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# Node / tooling
+node_modules/
+
+# OS
+.DS_Store

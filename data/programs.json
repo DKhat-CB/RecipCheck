@@ -1,0 +1,74 @@
+{
+  "NARM": {
+    "name": "North American Reciprocal Museum Association",
+    "reciprocity_type": "full_free",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": null,
+    "roster_url": "https://narmassociation.org/",
+    "notes": "Distance exclusion varies by institution; many apply ~90mi. Encode per-institution overrides if found."
+  },
+  "ROAM": {
+    "name": "Reciprocal Organization of Associated Museums",
+    "reciprocity_type": "full_free",
+    "distance_miles": 100,
+    "distance_basis": "both",
+    "default_guests": null,
+    "roster_url": "https://nbmaa.org/about/roam-network",
+    "notes": "100-mile exclusion measured from both residence and home institution."
+  },
+  "MARP": {
+    "name": "Museum Alliance Reciprocal Program",
+    "reciprocity_type": "full_free",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": null,
+    "roster_url": "",
+    "notes": "Smaller network similar to NARM/ROAM, full free admission. Required for SFMOMA. Verify current distance exclusion and encode per-institution if present."
+  },
+  "ASTC": {
+    "name": "ASTC Travel Passport Program",
+    "reciprocity_type": "full_free",
+    "distance_miles": 90,
+    "distance_basis": "both",
+    "default_guests": null,
+    "roster_url": "https://www.astc.org/passport/",
+    "notes": "Strict 90mi linear-radius rule from BOTH residence and home institution. Excludes most local science centers for a local user."
+  },
+  "AZA": {
+    "name": "Association of Zoos and Aquariums Reciprocal Admissions Program",
+    "reciprocity_type": "varies",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": null,
+    "roster_url": "https://www.aza.org/reciprocity",
+    "notes": "Many facilities only 50% off, not free. Uses a numeric reciprocity-code chart; encode per-facility reciprocity_type where determinable."
+  },
+  "AHS": {
+    "name": "American Horticultural Society Reciprocal Admissions Program",
+    "reciprocity_type": "varies",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": null,
+    "roster_url": "https://ahsgardening.org/gardening-programs/rap/",
+    "notes": "Gardens. Free or discounted; own mileage rules. Find-a-Garden map plus PDF."
+  },
+  "ACM": {
+    "name": "Association of Children's Museums Reciprocal Network",
+    "reciprocity_type": "fifty_percent",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": 6,
+    "roster_url": "https://childrensmuseums.org/visit/reciprocal-network/",
+    "notes": "50% off general admission, up to 6 people, cardholder must be present."
+  },
+  "TIME_TRAVELERS": {
+    "name": "Time Travelers",
+    "reciprocity_type": "varies",
+    "distance_miles": 0,
+    "distance_basis": "none",
+    "default_guests": null,
+    "roster_url": "https://www.museumsstl.org/timetravelers/",
+    "notes": "History sites. Not all offer free admission; some discount only."
+  }
+}

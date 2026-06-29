@@ -1,0 +1,9 @@
+# RecipCheck scraper / dataset pipeline (Python 3.11+)
+google-genai>=0.3      # Gemini extraction with schema-enforced JSON output
+httpx>=0.27            # primary HTTP fetcher
+selectolax>=0.3        # fast HTML parsing / membership-section isolation
+beautifulsoup4>=4.12   # fallback HTML parsing
+lxml>=5.0              # parser backend for bs4 / roster tables
+pydantic>=2.6          # response_schema models for the extractor
+playwright>=1.44       # browser-render fallback for WAF-blocked / JS-only pages
+pyyaml>=6.0            # config.yaml
