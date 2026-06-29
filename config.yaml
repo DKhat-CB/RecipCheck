@@ -7,7 +7,7 @@ metros:
   bay_area:
     label: "Bay Area"
     center: { lat: 37.7749, lng: -122.4194 }   # San Francisco
-    radius_miles: 80                            # captures San Jose, Monterey (~75mi)
+    radius_miles: 90                            # captures San Jose, Monterey Bay Aquarium (~85mi great-circle)
   nyc:
     label: "New York City"
     center: { lat: 40.7831, lng: -73.9712 }     # Manhattan

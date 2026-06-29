@@ -1,0 +1,388 @@
+[
+  {
+    "id": "sf-exploratorium",
+    "name": "Exploratorium",
+    "metro": "bay_area",
+    "address": "Pier 15, San Francisco, CA 94111",
+    "lat": 37.8017,
+    "lng": -122.3973,
+    "membership_url": "https://www.exploratorium.edu/visit/membership",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.exploratorium.edu/visit/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [
+      "non_participating"
+    ],
+    "notes": "Spec edge case: historically has not honored reciprocal admission; verify and treat on own economics."
+  },
+  {
+    "id": "sf-cal-academy",
+    "name": "California Academy of Sciences",
+    "metro": "bay_area",
+    "address": "55 Music Concourse Dr, San Francisco, CA 94118",
+    "lat": 37.7699,
+    "lng": -122.4661,
+    "membership_url": "https://www.calacademy.org/membership",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.calacademy.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [
+      "non_participating"
+    ],
+    "notes": "Spec edge case: historically has not honored reciprocal admission; verify and treat on own economics."
+  },
+  {
+    "id": "sf-famsf",
+    "name": "Fine Arts Museums of San Francisco (de Young + Legion of Honor)",
+    "metro": "bay_area",
+    "address": "50 Hagiwara Tea Garden Dr, San Francisco, CA 94118",
+    "lat": 37.7715,
+    "lng": -122.4687,
+    "membership_url": "https://www.famsf.org/join",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.famsf.org/join"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sf-sfmoma",
+    "name": "SFMOMA",
+    "metro": "bay_area",
+    "address": "151 Third St, San Francisco, CA 94103",
+    "lat": 37.7857,
+    "lng": -122.4011,
+    "membership_url": "https://www.sfmoma.org/join-give/membership/",
+    "programs": [
+      "MARP"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.sfmoma.org/join-give/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Spec: reciprocity runs through MARP (in phase-1 scope); should resolve as covered."
+  },
+  {
+    "id": "sj-sjma",
+    "name": "San Jose Museum of Art",
+    "metro": "bay_area",
+    "address": "110 S Market St, San Jose, CA 95113",
+    "lat": 37.3327,
+    "lng": -121.8901,
+    "membership_url": "https://sjmusart.org/membership",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://sjmusart.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "oak-omca",
+    "name": "Oakland Museum of California",
+    "metro": "bay_area",
+    "address": "1000 Oak St, Oakland, CA 94607",
+    "lat": 37.7975,
+    "lng": -122.2637,
+    "membership_url": "https://museumca.org/membership/",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://museumca.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sj-tech",
+    "name": "The Tech Interactive",
+    "metro": "bay_area",
+    "address": "201 S Market St, San Jose, CA 95113",
+    "lat": 37.3318,
+    "lng": -121.8901,
+    "membership_url": "https://www.thetech.org/membership/",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.thetech.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sj-cdm",
+    "name": "Children's Discovery Museum of San Jose",
+    "metro": "bay_area",
+    "address": "180 Woz Way, San Jose, CA 95110",
+    "lat": 37.3297,
+    "lng": -121.8907,
+    "membership_url": "https://www.cdm.org/membership/",
+    "programs": [
+      "ACM",
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.cdm.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sau-badm",
+    "name": "Bay Area Discovery Museum",
+    "metro": "bay_area",
+    "address": "557 McReynolds Rd, Sausalito, CA 94965",
+    "lat": 37.8327,
+    "lng": -122.4793,
+    "membership_url": "https://bayareadiscoverymuseum.org/membership",
+    "programs": [
+      "ACM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://bayareadiscoverymuseum.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "oak-chabot",
+    "name": "Chabot Space & Science Center",
+    "metro": "bay_area",
+    "address": "10000 Skyline Blvd, Oakland, CA 94619",
+    "lat": 37.8186,
+    "lng": -122.1817,
+    "membership_url": "https://chabotspace.org/membership/",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://chabotspace.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "berk-lhs",
+    "name": "Lawrence Hall of Science",
+    "metro": "bay_area",
+    "address": "1 Centennial Dr, Berkeley, CA 94720",
+    "lat": 37.8791,
+    "lng": -122.2459,
+    "membership_url": "https://www.lawrencehallofscience.org/visit/membership",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.lawrencehallofscience.org/visit/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "berk-ucbg",
+    "name": "UC Berkeley Botanical Garden",
+    "metro": "bay_area",
+    "address": "200 Centennial Dr, Berkeley, CA 94720",
+    "lat": 37.8757,
+    "lng": -122.2385,
+    "membership_url": "https://botanicalgarden.berkeley.edu/membership",
+    "programs": [
+      "AHS"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://botanicalgarden.berkeley.edu/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sf-asian",
+    "name": "Asian Art Museum",
+    "metro": "bay_area",
+    "address": "200 Larkin St, San Francisco, CA 94102",
+    "lat": 37.7801,
+    "lng": -122.4163,
+    "membership_url": "https://asianart.org/membership/",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://asianart.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "oak-zoo",
+    "name": "Oakland Zoo",
+    "metro": "bay_area",
+    "address": "9777 Golf Links Rd, Oakland, CA 94605",
+    "lat": 37.751,
+    "lng": -122.1467,
+    "membership_url": "https://www.oaklandzoo.org/membership",
+    "programs": [
+      "AZA"
+    ],
+    "reciprocity_overrides": {
+      "AZA": "fifty_percent"
+    },
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.oaklandzoo.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "sf-zoo",
+    "name": "San Francisco Zoo & Gardens",
+    "metro": "bay_area",
+    "address": "Sloat Blvd & Great Hwy, San Francisco, CA 94132",
+    "lat": 37.7325,
+    "lng": -122.5025,
+    "membership_url": "https://www.sfzoo.org/membership/",
+    "programs": [
+      "AZA"
+    ],
+    "reciprocity_overrides": {
+      "AZA": "fifty_percent"
+    },
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.sfzoo.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "mont-mba",
+    "name": "Monterey Bay Aquarium",
+    "metro": "bay_area",
+    "address": "886 Cannery Row, Monterey, CA 93940",
+    "lat": 36.6182,
+    "lng": -121.9018,
+    "membership_url": "https://www.montereybayaquarium.org/membership",
+    "programs": [
+      "AZA"
+    ],
+    "reciprocity_overrides": {
+      "AZA": "fifty_percent"
+    },
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.montereybayaquarium.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "~75mi from SF, inside the 80mi frontier. Reciprocity via AZA is typically 50%, not free."
+  },
+  {
+    "id": "wood-filoli",
+    "name": "Filoli",
+    "metro": "bay_area",
+    "address": "86 Canada Rd, Woodside, CA 94062",
+    "lat": 37.4699,
+    "lng": -122.3186,
+    "membership_url": "https://filoli.org/membership/",
+    "programs": [
+      "AHS",
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://filoli.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  }
+]

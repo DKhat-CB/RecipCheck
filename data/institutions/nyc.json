@@ -1,0 +1,418 @@
+[
+  {
+    "id": "ny-met",
+    "name": "The Metropolitan Museum of Art",
+    "metro": "nyc",
+    "address": "1000 5th Ave, New York, NY 10028",
+    "lat": 40.7794,
+    "lng": -73.9632,
+    "membership_url": "https://www.metmuseum.org/join-and-give/membership",
+    "programs": [],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.metmuseum.org/join-and-give/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Historically not part of NARM/reciprocal networks; verify, likely join-direct only."
+  },
+  {
+    "id": "ny-moma",
+    "name": "Museum of Modern Art",
+    "metro": "nyc",
+    "address": "11 W 53rd St, New York, NY 10019",
+    "lat": 40.7614,
+    "lng": -73.9776,
+    "membership_url": "https://www.moma.org/membership/",
+    "programs": [],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.moma.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Historically not in reciprocal networks; verify."
+  },
+  {
+    "id": "ny-whitney",
+    "name": "Whitney Museum of American Art",
+    "metro": "nyc",
+    "address": "99 Gansevoort St, New York, NY 10014",
+    "lat": 40.7396,
+    "lng": -74.0089,
+    "membership_url": "https://whitney.org/membership",
+    "programs": [],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://whitney.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Verify reciprocal participation."
+  },
+  {
+    "id": "ny-guggenheim",
+    "name": "Solomon R. Guggenheim Museum",
+    "metro": "nyc",
+    "address": "1071 5th Ave, New York, NY 10128",
+    "lat": 40.783,
+    "lng": -73.959,
+    "membership_url": "https://www.guggenheim.org/membership",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.guggenheim.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-amnh",
+    "name": "American Museum of Natural History",
+    "metro": "nyc",
+    "address": "200 Central Park West, New York, NY 10024",
+    "lat": 40.7813,
+    "lng": -73.974,
+    "membership_url": "https://www.amnh.org/join-support/membership",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.amnh.org/join-support/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Verify ASTC participation."
+  },
+  {
+    "id": "ny-brooklyn-museum",
+    "name": "Brooklyn Museum",
+    "metro": "nyc",
+    "address": "200 Eastern Pkwy, Brooklyn, NY 11238",
+    "lat": 40.6712,
+    "lng": -73.9636,
+    "membership_url": "https://www.brooklynmuseum.org/support/membership",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.brooklynmuseum.org/support/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-nyhs",
+    "name": "New-York Historical Society",
+    "metro": "nyc",
+    "address": "170 Central Park West, New York, NY 10024",
+    "lat": 40.7794,
+    "lng": -73.974,
+    "membership_url": "https://www.nyhistory.org/membership",
+    "programs": [
+      "NARM",
+      "TIME_TRAVELERS"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.nyhistory.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-intrepid",
+    "name": "Intrepid Museum",
+    "metro": "nyc",
+    "address": "Pier 86, W 46th St, New York, NY 10036",
+    "lat": 40.7647,
+    "lng": -74.0019,
+    "membership_url": "https://www.intrepidmuseum.org/membership",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.intrepidmuseum.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Verify ASTC participation."
+  },
+  {
+    "id": "ny-bronx-zoo",
+    "name": "Bronx Zoo (WCS)",
+    "metro": "nyc",
+    "address": "2300 Southern Blvd, Bronx, NY 10460",
+    "lat": 40.8506,
+    "lng": -73.8769,
+    "membership_url": "https://bronxzoo.com/membership",
+    "programs": [
+      "AZA"
+    ],
+    "reciprocity_overrides": {
+      "AZA": "fifty_percent"
+    },
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://bronxzoo.com/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-aquarium",
+    "name": "New York Aquarium (WCS)",
+    "metro": "nyc",
+    "address": "602 Surf Ave, Brooklyn, NY 11224",
+    "lat": 40.5755,
+    "lng": -73.9707,
+    "membership_url": "https://nyaquarium.com/membership",
+    "programs": [
+      "AZA"
+    ],
+    "reciprocity_overrides": {
+      "AZA": "fifty_percent"
+    },
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://nyaquarium.com/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-nybg",
+    "name": "New York Botanical Garden",
+    "metro": "nyc",
+    "address": "2900 Southern Blvd, Bronx, NY 10458",
+    "lat": 40.8623,
+    "lng": -73.877,
+    "membership_url": "https://www.nybg.org/membership/",
+    "programs": [
+      "AHS"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.nybg.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-bbg",
+    "name": "Brooklyn Botanic Garden",
+    "metro": "nyc",
+    "address": "990 Washington Ave, Brooklyn, NY 11225",
+    "lat": 40.6694,
+    "lng": -73.9626,
+    "membership_url": "https://www.bbg.org/support/membership",
+    "programs": [
+      "AHS"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.bbg.org/support/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-cmom",
+    "name": "Children's Museum of Manhattan",
+    "metro": "nyc",
+    "address": "212 W 83rd St, New York, NY 10024",
+    "lat": 40.7853,
+    "lng": -73.9772,
+    "membership_url": "https://cmom.org/membership/",
+    "programs": [
+      "ACM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://cmom.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-bcm",
+    "name": "Brooklyn Children's Museum",
+    "metro": "nyc",
+    "address": "145 Brooklyn Ave, Brooklyn, NY 11213",
+    "lat": 40.6743,
+    "lng": -73.9436,
+    "membership_url": "https://www.brooklynkids.org/membership/",
+    "programs": [
+      "ACM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.brooklynkids.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-nysci",
+    "name": "New York Hall of Science",
+    "metro": "nyc",
+    "address": "47-01 111th St, Corona, NY 11368",
+    "lat": 40.7376,
+    "lng": -73.8517,
+    "membership_url": "https://nysci.org/membership/",
+    "programs": [
+      "ASTC"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://nysci.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-cooper-hewitt",
+    "name": "Cooper Hewitt, Smithsonian Design Museum",
+    "metro": "nyc",
+    "address": "2 E 91st St, New York, NY 10128",
+    "lat": 40.7846,
+    "lng": -73.9576,
+    "membership_url": "https://www.cooperhewitt.org/membership/",
+    "programs": [],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.cooperhewitt.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": "Smithsonian; verify reciprocal participation."
+  },
+  {
+    "id": "ny-mcny",
+    "name": "Museum of the City of New York",
+    "metro": "nyc",
+    "address": "1220 5th Ave, New York, NY 10029",
+    "lat": 40.7926,
+    "lng": -73.9518,
+    "membership_url": "https://www.mcny.org/membership",
+    "programs": [
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.mcny.org/membership"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-qbg",
+    "name": "Queens Botanical Garden",
+    "metro": "nyc",
+    "address": "43-50 Main St, Flushing, NY 11355",
+    "lat": 40.7512,
+    "lng": -73.8267,
+    "membership_url": "https://queensbotanical.org/membership/",
+    "programs": [
+      "AHS"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://queensbotanical.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  },
+  {
+    "id": "ny-wave-hill",
+    "name": "Wave Hill",
+    "metro": "nyc",
+    "address": "W 249th St & Independence Ave, Bronx, NY 10471",
+    "lat": 40.8976,
+    "lng": -73.9116,
+    "membership_url": "https://www.wavehill.org/membership/",
+    "programs": [
+      "AHS",
+      "NARM"
+    ],
+    "reciprocity_overrides": {},
+    "tiers": [],
+    "general_admission": null,
+    "source_urls": [
+      "https://www.wavehill.org/membership/"
+    ],
+    "last_verified": null,
+    "confidence": 0.0,
+    "flags": [],
+    "notes": ""
+  }
+]
