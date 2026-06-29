@@ -16,7 +16,7 @@ estimated annual savings versus paying per visit.
 
 The interface deploys to **GitHub Pages** as an installable web app:
 
-> **https://dkhat-cb.github.io/recipcheck/**
+> **https://dkhat-cb.github.io/RecipCheck/**
 
 Send that link to anyone — it runs on any phone or desktop browser, no install required.
 
