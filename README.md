@@ -98,14 +98,18 @@ python -m http.server -d web 8000                  # then open http://localhost:
 
 The scraper pipeline is implemented and runs end-to-end (fetch ladder → membership-section
 hashing → schema-enforced Gemini extraction → confidence routing). In the environment this
-dataset was first built in, two real constraints limited automated yield: most marquee
-membership pages WAF-block non-browser fetches and the browser-render fallback could not
+dataset was built in, three real constraints blocked a fully automated crawl: most marquee
+membership pages WAF-block non-browser fetches, the browser-render fallback could not
 traverse the egress proxy's HTTPS CONNECT, and the Gemini free tier caps `generate_content`
 at 20 requests/day. Following the spec's "clear the review queue once" step, the committed
-dataset for all 36 institutions is **hand-verified** (`scraper/manual_overrides.py`); each
-record carries `confidence`, `last_verified`, and a `manually_verified` flag. Re-running the
-crawler with adequate Gemini quota and a non-blocking network overwrites these with extracted
-data; unchanged membership-section hashes skip the Gemini call, so refreshes stay cheap.
+dataset for all 36 institutions is **sourced from each institution's own membership/admission
+pages via web search plus document review** (`scraper/manual_overrides.py`). Each record
+carries its `source_urls`, `confidence`, `last_verified`, and a `web_sourced` flag; where a
+specific membership price could not be pinned to an exact current figure the record uses a
+best estimate and is additionally flagged `price_approximate` (9 of 36) rather than implying
+false precision. Prices reprice ~yearly; the quarterly re-scrape (or a future crawl with
+adequate Gemini quota and an unblocked network) overwrites these, and unchanged
+membership-section hashes skip the Gemini call so refreshes stay cheap.
 
 ## Why a scraper plus an LLM
 

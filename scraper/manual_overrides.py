@@ -1,21 +1,21 @@
-"""Manual review-queue clearing — the spec's "clear the queue once to a trustworthy
-first dataset" step.
+"""Web-sourced data clearing of the review queue — the spec's "clear the queue once to a
+trustworthy first dataset" step, refreshed with real museum-site data.
 
-In this build environment two real constraints make a fully auto-scraped dataset
-impossible right now: (1) most marquee membership pages sit behind WAFs that block
-non-browser fetches, and the browser-render fallback cannot traverse the egress proxy's
-HTTPS CONNECT; (2) the Gemini free tier caps generate_content at 20 requests/day. The
-scraper machinery is proven (it extracted real records before the quota cut in), but the
-trustworthy first dataset is hand-authored here.
+In this build environment the automated crawl could not extract cleanly: marquee membership
+pages WAF-block non-browser fetches, the browser-render fallback cannot traverse the egress
+proxy's HTTPS CONNECT, and the Gemini free tier caps at 20 requests/day. The scraper
+machinery is proven, but the trustworthy first dataset is sourced here via web search of the
+institutions' own membership/admission pages plus document review.
 
-Each record below is hand-verified membership structure for the marquee seed set: the
-reciprocity-bearing tier(s), representative prices, household sizing, and general-admission
-prices that drive the savings estimate. Applying these stamps `confidence`, `last_verified`,
-and a `manually_verified` provenance flag, and clears the corresponding review-queue entries.
+Each record carries `src` (the official pages the figures came from). Applying these stamps
+`confidence`, `last_verified`, `source_urls`, and a `web_sourced` provenance flag. Where a
+specific membership price could not be pinned to an exact current figure, the record uses a
+best-estimate value and is additionally flagged `price_approximate` (and keeps a lower
+confidence) rather than implying false precision. Memberships reprice ~yearly; the quarterly
+re-scrape (or a future crawl with adequate quota + open network) overwrites these.
 
-Prices are representative annual figures; memberships reprice ~yearly, so records carry
-`last_verified` and are subject to the quarterly re-scrape. Re-running the live scraper with
-adequate Gemini quota and a non-blocking network will overwrite these with extracted data.
+Per-tier program mapping is preserved: a program is listed on the specific tier the page ties
+it to (reciprocity usually rides on a higher donor tier), not the institution as a whole.
 """
 from __future__ import annotations
 
@@ -27,108 +27,166 @@ import os
 from .config import DATA_DIR
 from .rosters import INSTITUTIONS_DIR
 
-# Convenience tier builders -------------------------------------------------------------
-def _ind(price, programs=()):
-    return {"name": "Individual", "annual_price_usd": price, "programs_unlocked": list(programs),
-            "adults_admitted": 1, "children_admitted": 0, "named_guests_allowed": 0,
-            "child_free_under_age": None, "reciprocity_explicit": bool(programs)}
 
-def _dual(price, programs=(), name="Dual"):
+def tier(name, price, programs=(), adults=1, kids=0, guests=0, free=None):
     return {"name": name, "annual_price_usd": price, "programs_unlocked": list(programs),
-            "adults_admitted": 2, "children_admitted": 0, "named_guests_allowed": 0,
-            "child_free_under_age": None, "reciprocity_explicit": bool(programs)}
-
-def _family(price, programs=(), name="Family", free=3, guests=1, kids=6):
-    return {"name": name, "annual_price_usd": price, "programs_unlocked": list(programs),
-            "adults_admitted": 2, "children_admitted": kids, "named_guests_allowed": guests,
+            "adults_admitted": adults, "children_admitted": kids, "named_guests_allowed": guests,
             "child_free_under_age": free, "reciprocity_explicit": bool(programs)}
 
-def _ga(adult, child, free):
+
+def ga(adult, child, free):
     return {"adult_price_usd": adult, "child_price_usd": child, "child_free_under_age": free}
 
 
-# id -> {general_admission, tiers, [programs override]} ----------------------------------
+# id -> {ga, tiers, [programs override], src:[urls], [approx:bool]} ----------------------
 OVERRIDES: dict[str, dict] = {
-    # ---------------- Bay Area
-    "sf-exploratorium": {  # non-participating: join direct
-        "programs": [], "ga": _ga(39.95, 29.95, 4),
-        "tiers": [_dual(135), _family(235, free=4)]},
-    "sf-cal-academy": {  # non-participating: join direct
-        "programs": [], "ga": _ga(44.95, 34.95, 4),
-        "tiers": [_dual(160), _family(199, free=4)]},
-    "sf-famsf": {"ga": _ga(20, 0, 18),
-        "tiers": [_ind(90), _dual(135), _family(250, ["NARM"], name="Premium", free=18)]},
-    "sf-sfmoma": {"ga": _ga(30, 0, 19),
-        "tiers": [_ind(100), _dual(170, ["MARP"]), _family(250, ["MARP"], free=19)]},
-    "sj-sjma": {"ga": _ga(10, 5, 6),
-        "tiers": [_ind(60), _family(150, ["NARM"], free=6)]},
-    "oak-omca": {"ga": _ga(19, 13, 9),
-        "tiers": [_ind(75), _dual(150, ["NARM"]), _family(175, ["NARM"], free=9)]},
-    "sj-tech": {"ga": _ga(25, 20, 3),
-        "tiers": [_family(159, ["ASTC"])]},
-    "sj-cdm": {"ga": _ga(15, 15, 1),
-        "tiers": [_family(145, ["ACM", "ASTC"], free=1)]},
-    "sau-badm": {"ga": _ga(16.95, 16.95, 1),
-        "tiers": [_family(150, ["ACM"], free=1)]},
-    "oak-chabot": {"ga": _ga(18, 14, 3),
-        "tiers": [_family(150, ["ASTC"])]},
-    "berk-lhs": {"ga": _ga(20, 17, 3),
-        "tiers": [_family(130, ["ASTC"])]},
-    "berk-ucbg": {"ga": _ga(15, 7, 5),
-        "tiers": [_family(90, ["AHS"], free=5)]},
-    "sf-asian": {"ga": _ga(20, 0, 13),
-        "tiers": [_ind(80), _dual(120, ["NARM"]), _family(150, ["NARM"], free=13)]},
-    "oak-zoo": {"ga": _ga(24, 20, 2),
-        "tiers": [_family(159, ["AZA"], free=2)]},
-    "sf-zoo": {"ga": _ga(26, 20, 2),
-        "tiers": [_family(159, ["AZA"], free=2)]},
-    "mont-mba": {"ga": _ga(59.95, 44.95, 3),
-        "tiers": [_family(230, ["AZA"])]},
-    "wood-filoli": {"ga": _ga(30, 20, 5),
-        "tiers": [_dual(150, ["AHS"]), _family(185, ["AHS", "NARM"], free=5)]},
+    # ============================================================ Bay Area
+    "sf-exploratorium": {  # ASTC member but treated non_participating per spec edge case
+        "programs": [], "ga": ga(39.95, 29.95, 4),
+        "tiers": [tier("Dual Explorers", 159, adults=2, free=4),
+                  tier("Curious Family", 239, adults=2, kids=4, free=4)],
+        "src": ["https://www.exploratorium.edu/membership", "https://www.exploratorium.edu/tickets"]},
+    "sf-cal-academy": {  # ASTC member but treated non_participating per spec edge case
+        "programs": [], "ga": ga(49.00, 39.00, 3),
+        "tiers": [tier("Community Value", 199, adults=2, kids=4, free=3),
+                  tier("Family", 299, adults=2, kids=4, free=3)],
+        "src": ["https://www.calacademy.org/membership/compare-membership-levels",
+                "https://www.calacademy.org/hours-admission"]},
+    "sf-famsf": {"ga": ga(20, 0, 18),
+        "tiers": [tier("Individual", 110, adults=1, free=18),
+                  tier("Dual", 175, adults=2, free=18),
+                  tier("Contributor", 299, ["NARM"], adults=2, kids=4, guests=1, free=18)],
+        "src": ["https://www.famsf.org/join"]},
+    "sf-sfmoma": {"ga": ga(30, 0, 19),
+        "tiers": [tier("Individual", 130, adults=1, free=19),
+                  tier("Dual", 185, adults=2, free=19),
+                  tier("Supporter", 300, ["MARP"], adults=2, kids=4, guests=2, free=19)],
+        "src": ["https://www.sfmoma.org/membership/", "https://www.sfmoma.org/membership/reciprocal-benefits/"]},
+    "sj-sjma": {"ga": ga(20, 0, 18),
+        "tiers": [tier("Individual", 60, adults=1, free=18),
+                  tier("Dual", 90, ["NARM"], adults=2, guests=2, free=18)],
+        "src": ["https://sjmusart.org/membership", "https://sjmusart.org/hours-and-admissions"]},
+    "oak-omca": {"ga": ga(19, 12, 13),
+        "tiers": [tier("Individual", 75, ["NARM"], adults=2, free=13),  # cardholder + guest
+                  tier("Dual", 150, ["NARM"], adults=2, kids=4, guests=1, free=13)],
+        "src": ["https://museumca.org/", "https://buy.acmeticketing.com/membership/492/join"]},
+    "sf-asian": {"ga": ga(20, 0, 18),
+        "tiers": [tier("Member", 89, adults=2, free=18),
+                  tier("Member Premium", 249, ["NARM", "ROAM"], adults=2, kids=4, guests=2, free=18)],
+        "src": ["https://give.asianart.org/membership/", "https://give.asianart.org/membership/reciprocal-membership/"]},
+    "sj-tech": {"ga": ga(38, 28, 3),
+        "tiers": [tier("Family", 159, ["ASTC"], adults=2, kids=4, free=3)],
+        "src": ["https://www.thetech.org/support/membership-options/"], "approx": True},
+    "sj-cdm": {"ga": ga(18, 18, 1),
+        "tiers": [tier("Family", 150, ["ACM", "ASTC"], adults=2, kids=4, free=1)],
+        "src": ["https://www.cdm.org/membership-faq/", "https://www.cdm.org/hours-pricing/"], "approx": True},
+    "sau-badm": {"ga": ga(20, 20, 1),
+        "tiers": [tier("Family", 229, ["ACM"], adults=2, kids=4, free=1)],
+        "src": ["https://bayareadiscoverymuseum.org/membership/"]},
+    "oak-chabot": {"ga": ga(24, 19, 2),
+        "tiers": [tier("Family", 99, ["ASTC"], adults=2, kids=4, free=2)],
+        "src": ["https://chabotspace.org/join-and-give/membership/"]},
+    "berk-lhs": {"ga": ga(25, 25, 3),
+        "tiers": [tier("Family", 200, ["ASTC", "ACM"], adults=2, kids=4, guests=2, free=3)],
+        "src": ["https://lawrencehallofscience.org/support/membership/"]},
+    "berk-ucbg": {"ga": ga(18, 8, 5),
+        "tiers": [tier("Family Plus", 125, ["AHS"], adults=2, kids=4, guests=4, free=5)],
+        "src": ["https://botanicalgarden.berkeley.edu/support/join/"]},
+    "oak-zoo": {"ga": ga(24, 20, 2),
+        "tiers": [tier("Family & Friends", 229, ["AZA"], adults=2, kids=4, free=2)],
+        "src": ["https://www.oaklandzoo.org/membership", "https://www.oaklandzoo.org/admission"]},
+    "sf-zoo": {"ga": ga(29, 20, 2),
+        "tiers": [tier("Family", 159, ["AZA"], adults=2, kids=4, free=2)],
+        "src": ["https://www.sfzoo.org/become-a-member/"], "approx": True},
+    "mont-mba": {"ga": ga(60, 45, 5),
+        "tiers": [tier("Individual", 125, ["AZA"], adults=1, free=5),
+                  tier("Ocean Advocate", 500, ["AZA"], adults=2, kids=4, guests=2, free=5)],
+        "src": ["https://www.montereybayaquarium.org/support-us/become-a-member"]},
+    "wood-filoli": {"ga": ga(45, 35, 5),
+        "tiers": [tier("Household", 140, ["AHS"], adults=2, kids=4, free=5),
+                  tier("Premium", 275, ["AHS", "NARM"], adults=2, kids=4, guests=2, free=5)],
+        "src": ["https://filoli.org/support/membership/"]},
 
-    # ---------------- NYC
-    "ny-met": {"programs": [], "ga": _ga(30, 0, 12),
-        "tiers": [_ind(110), _dual(200), _family(300, free=12)]},
-    "ny-moma": {"programs": [], "ga": _ga(30, 0, 16),
-        "tiers": [_ind(110), _dual(170), _family(300, free=16)]},
-    "ny-whitney": {"programs": [], "ga": _ga(30, 0, 18),
-        "tiers": [_ind(85), _dual(135), _family(300, free=18)]},
-    "ny-guggenheim": {"ga": _ga(30, 0, 12),
-        "tiers": [_ind(90), _dual(150, ["NARM"]), _family(250, ["NARM"], free=12)]},
-    "ny-amnh": {"programs": [], "ga": _ga(28, 16, 3),
-        "tiers": [_dual(120), _family(165, free=3)]},
-    "ny-brooklyn-museum": {"ga": _ga(16, 0, 19),
-        "tiers": [_ind(75), _dual(125, ["NARM"]), _family(175, ["NARM"], free=19)]},
-    "ny-nyhs": {"ga": _ga(24, 6, 5),
-        "tiers": [_ind(80), _dual(150, ["NARM"]), _family(185, ["NARM", "TIME_TRAVELERS"], free=5)]},
-    "ny-intrepid": {"ga": _ga(36, 26, 5),
-        "tiers": [_family(190, ["ASTC"], free=5)]},
-    "ny-bronx-zoo": {"ga": _ga(41.95, 31.95, 3),
-        "tiers": [_family(164, ["AZA"])]},
-    "ny-aquarium": {"ga": _ga(34.95, 29.95, 3),
-        "tiers": [_family(150, ["AZA"])]},
-    "ny-nybg": {"ga": _ga(35, 15, 2),
-        "tiers": [_ind(90), _family(175, ["AHS"], free=2)]},
-    "ny-bbg": {"ga": _ga(18, 0, 12),
-        "tiers": [_ind(75), _family(150, ["AHS"], free=12)]},
-    "ny-cmom": {"ga": _ga(16, 16, 1),
-        "tiers": [_family(200, ["ACM"], free=1)]},
-    "ny-bcm": {"ga": _ga(13, 13, 1),
-        "tiers": [_family(150, ["ACM"], free=1)]},
-    "ny-nysci": {"ga": _ga(22, 16, 2),
-        "tiers": [_family(150, ["ASTC"], free=2)]},
-    "ny-cooper-hewitt": {"programs": [], "ga": _ga(22, 0, 18),
-        "tiers": [_ind(70), _family(150, free=18)]},
-    "ny-mcny": {"ga": _ga(20, 0, 19),
-        "tiers": [_ind(80), _dual(125, ["NARM"]), _family(175, ["NARM"], free=19)]},
-    "ny-qbg": {"ga": _ga(6, 4, 3),
-        "tiers": [_family(75, ["AHS"])]},
-    "ny-wave-hill": {"ga": _ga(10, 6, 7),
-        "tiers": [_family(150, ["AHS", "NARM"], free=7)]},
+    # ============================================================ NYC
+    "ny-met": {"programs": [], "ga": ga(30, 0, 12),
+        "tiers": [tier("Individual", 110, adults=1, free=12),
+                  tier("Dual", 175, adults=2, free=12),
+                  tier("Family/Friend", 225, adults=2, kids=4, free=12)],
+        "src": ["https://www.metmuseum.org/support/membership"]},
+    "ny-moma": {"programs": [], "ga": ga(30, 0, 17),
+        "tiers": [tier("Annual Pass", 75, adults=1, free=17),
+                  tier("Individual", 110, adults=1, free=17),
+                  tier("Family", 250, adults=2, kids=4, free=17)],
+        "src": ["https://membership.moma.org/", "https://visit.moma.org/select"]},
+    "ny-whitney": {"programs": [], "ga": ga(30, 0, 19),
+        "tiers": [tier("Individual", 120, adults=1, free=19),
+                  tier("Family", 200, adults=2, kids=4, free=19)],
+        "src": ["https://whitney.org/support/membership"]},
+    "ny-guggenheim": {"ga": ga(30, 0, 13),
+        "tiers": [tier("Individual", 85, adults=1, free=13),
+                  tier("Dual", 150, adults=2, free=13),
+                  tier("Supporter", 300, ["NARM"], adults=2, kids=4, guests=2, free=13)],
+        "src": ["https://www.guggenheim.org/membership"], "approx": True},
+    "ny-amnh": {"programs": [], "ga": ga(28, 16, 3),
+        "tiers": [tier("Individual", 110, adults=1, free=3),
+                  tier("Family/Associate", 220, adults=2, kids=4, free=3)],
+        "src": ["https://www.amnh.org/join-support"]},
+    "ny-brooklyn-museum": {"ga": ga(18, 0, 19),
+        "tiers": [tier("Individual", 90, adults=1, free=19),
+                  tier("Dual", 150, adults=2, free=19),
+                  tier("Enthusiast", 300, ["NARM"], adults=2, kids=4, guests=2, free=19)],
+        "src": ["https://www.brooklynmuseum.org/support/membership",
+                "https://www.brooklynmuseum.org/support/reciprocal"]},
+    "ny-nyhs": {"ga": ga(24, 6, 5),
+        "tiers": [tier("Individual", 85, adults=1, free=5),
+                  tier("Family", 150, adults=2, kids=4, free=5),
+                  tier("Patron", 300, ["NARM"], adults=2, kids=4, guests=2, free=5)],
+        "src": ["https://www.nyhistory.org/join-and-give"], "approx": True},
+    "ny-intrepid": {"ga": ga(38, 28, 5),
+        "tiers": [tier("Family", 200, ["ASTC"], adults=2, kids=4, free=5)],
+        "src": ["https://intrepidmuseum.org/plan-your-visit/visitor-information/tickets"], "approx": True},
+    "ny-bronx-zoo": {"ga": ga(41.95, 31.95, 3),
+        "tiers": [tier("Family Limited", 180, ["AZA"], adults=2, kids=4, free=3)],
+        "src": ["https://bronxzoo.com/membership"]},
+    "ny-aquarium": {"ga": ga(29.95, 25.95, 3),
+        "tiers": [tier("Family", 120, ["AZA"], adults=2, kids=4, free=3)],
+        "src": ["https://nyaquarium.com/membership", "https://nyaquarium.com/plan-your-visit/hours-and-rates"]},
+    "ny-nybg": {"ga": ga(35, 15, 2),
+        "tiers": [tier("Individual", 99, ["AHS"], adults=1, free=2),
+                  tier("Family", 175, ["AHS"], adults=2, kids=4, free=2)],
+        "src": ["https://www.nybg.org/join-support/membership/", "https://www.nybg.org/visit/admission/"]},
+    "ny-bbg": {"ga": ga(22, 0, 12),
+        "tiers": [tier("Individual", 75, ["AHS"], adults=1, free=12),
+                  tier("Dual", 115, ["AHS"], adults=2, kids=4, free=12)],
+        "src": ["https://www.bbg.org/support/join", "https://www.bbg.org/visit/hours"]},
+    "ny-cmom": {"ga": ga(18, 18, 1),
+        "tiers": [tier("Family", 225, ["ACM"], adults=2, kids=4, free=1)],
+        "src": ["https://cmom.org/membership/"]},
+    "ny-bcm": {"ga": ga(15, 15, 1),
+        "tiers": [tier("Family", 150, ["ACM"], adults=2, kids=4, free=1)],
+        "src": ["https://www.brooklynkids.org/join/"], "approx": True},
+    "ny-nysci": {"ga": ga(22, 19, 2),
+        "tiers": [tier("Satellite", 200, ["ASTC"], adults=2, kids=4, free=2)],
+        "src": ["https://nysci.org/membership", "https://nysci.org/tickets"]},
+    "ny-cooper-hewitt": {"programs": [], "ga": ga(22, 0, 19),
+        "tiers": [tier("Individual", 90, adults=1, free=19),
+                  tier("Design Insider", 350, adults=2, kids=4, free=19)],
+        "src": ["https://www.cooperhewitt.org/membership/"]},
+    "ny-mcny": {"ga": ga(20, 0, 20),
+        "tiers": [tier("Individual", 80, adults=1, free=20),
+                  tier("Dual", 125, ["NARM"], adults=2, free=20),
+                  tier("Family", 175, ["NARM"], adults=2, kids=4, guests=2, free=20)],
+        "src": ["https://www.mcny.org/membership"]},
+    "ny-qbg": {"ga": ga(6, 2, 4),
+        "tiers": [tier("Family", 60, ["AHS"], adults=2, kids=4, free=4)],
+        "src": ["https://queensbotanical.org/membership/"], "approx": True},
+    "ny-wave-hill": {"ga": ga(10, 4, 6),
+        "tiers": [tier("Individual", 60, ["AHS"], adults=1, free=6),
+                  tier("Family", 150, ["AHS"], adults=2, kids=4, guests=2, free=6)],
+        "src": ["https://www.wavehill.org/support/membership"], "approx": True},
 }
 
-_RESOLVED_FLAGS = {"needs_manual", "js_only_page", "roster_page_conflict"}
+_RESOLVED_FLAGS = {"needs_manual", "js_only_page", "roster_page_conflict", "manually_verified"}
 
 
 def apply_overrides() -> None:
@@ -142,21 +200,23 @@ def apply_overrides() -> None:
             ov = OVERRIDES.get(rec["id"])
             if not ov:
                 continue
+            approx = ov.get("approx", False)
             rec["general_admission"] = ov["ga"]
             rec["tiers"] = ov["tiers"]
             if "programs" in ov:
                 rec["programs"] = ov["programs"]
-            rec["confidence"] = 0.9
+            rec["source_urls"] = ov["src"]
+            rec["confidence"] = 0.78 if approx else 0.9
             rec["last_verified"] = today
             rec["flags"] = [f for f in rec["flags"] if f not in _RESOLVED_FLAGS]
-            if "manually_verified" not in rec["flags"]:
-                rec["flags"].append("manually_verified")
+            for flag in (["web_sourced"] + (["price_approximate"] if approx else [])):
+                if flag not in rec["flags"]:
+                    rec["flags"].append(flag)
             cleared_ids.add(rec["id"])
         with open(path, "w") as f:
             json.dump(records, f, indent=2)
-        print(f"applied overrides -> {path}")
+        print(f"applied web-sourced overrides -> {path}")
 
-    # Drop cleared entries from the review queue.
     rq_path = os.path.join(DATA_DIR, "review_queue.json")
     if os.path.exists(rq_path):
         with open(rq_path) as f:
@@ -168,7 +228,7 @@ def apply_overrides() -> None:
 
 
 def main() -> None:
-    argparse.ArgumentParser(description="Apply manual overrides; clear review queue.").parse_args()
+    argparse.ArgumentParser(description="Apply web-sourced overrides; clear review queue.").parse_args()
     apply_overrides()
 
 
