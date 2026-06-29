@@ -772,8 +772,8 @@
       }
     ],
     "general_admission": {
-      "adult_price_usd": 60,
-      "child_price_usd": 45,
+      "adult_price_usd": 65,
+      "child_price_usd": 50,
       "child_free_under_age": 5
     },
     "source_urls": [

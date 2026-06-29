@@ -98,7 +98,7 @@ OVERRIDES: dict[str, dict] = {
     "sf-zoo": {"ga": ga(29, 20, 2),
         "tiers": [tier("Family", 159, ["AZA"], adults=2, kids=4, free=2)],
         "src": ["https://www.sfzoo.org/become-a-member/"], "approx": True},
-    "mont-mba": {"ga": ga(60, 45, 5),
+    "mont-mba": {"ga": ga(65, 50, 5),
         "tiers": [tier("Individual", 125, ["AZA"], adults=1, free=5),
                   tier("Family", 180, ["AZA"], adults=2, kids=4, free=5),
                   tier("Premium", 250, ["AZA"], adults=2, guests=2, free=5)],
