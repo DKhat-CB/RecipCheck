@@ -1,0 +1,86 @@
+{
+  "build": {"build_id": "fixture", "built_at": "2026-01-01T00:00:00Z", "stale_after_days": 120},
+  "programs": {
+    "NARM": {"name": "NARM", "reciprocity_type": "full_free", "distance_miles": 0, "distance_basis": "none"},
+    "MARP": {"name": "MARP", "reciprocity_type": "full_free", "distance_miles": 0, "distance_basis": "none"},
+    "ASTC": {"name": "ASTC", "reciprocity_type": "full_free", "distance_miles": 90, "distance_basis": "both"},
+    "AZA": {"name": "AZA", "reciprocity_type": "varies", "distance_miles": 0, "distance_basis": "none"}
+  },
+  "metros": {"test": {"label": "Test", "center": {"lat": 37.7749, "lng": -122.4194}, "radius_miles": 300}},
+  "institutions": [
+    {
+      "id": "sf-art-a", "name": "SF Art A", "metro": "test", "lat": 37.7858, "lng": -122.4064,
+      "programs": ["NARM"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Basic", "annual_price_usd": 80, "programs_unlocked": [], "adults_admitted": 2, "children_admitted": 2, "named_guests_allowed": 0, "child_free_under_age": 3, "reciprocity_explicit": false},
+        {"name": "Reciprocal", "annual_price_usd": 150, "programs_unlocked": ["NARM"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 0, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 25, "child_price_usd": 15, "child_free_under_age": 3},
+      "flags": []
+    },
+    {
+      "id": "sac-art-b", "name": "Sacramento Art B", "metro": "test", "lat": 38.5816, "lng": -121.4944,
+      "programs": ["NARM"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Reciprocal", "annual_price_usd": 120, "programs_unlocked": ["NARM"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 1, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 20, "child_price_usd": 12, "child_free_under_age": 3},
+      "flags": []
+    },
+    {
+      "id": "sf-sci", "name": "SF Science", "metro": "test", "lat": 37.8017, "lng": -122.3973,
+      "programs": ["ASTC"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Family", "annual_price_usd": 140, "programs_unlocked": ["ASTC"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 0, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 30, "child_price_usd": 25, "child_free_under_age": 3},
+      "flags": []
+    },
+    {
+      "id": "far-sci", "name": "Far Science", "metro": "test", "lat": 36.0, "lng": -119.0,
+      "programs": ["ASTC"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Family", "annual_price_usd": 110, "programs_unlocked": ["ASTC"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 0, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 22, "child_price_usd": 18, "child_free_under_age": 3},
+      "flags": []
+    },
+    {
+      "id": "sf-zoo", "name": "SF Zoo", "metro": "test", "lat": 37.7325, "lng": -122.5025,
+      "programs": ["AZA"], "reciprocity_overrides": {"AZA": "fifty_percent"},
+      "tiers": [
+        {"name": "Family", "annual_price_usd": 130, "programs_unlocked": ["AZA"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 0, "child_free_under_age": 2, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 30, "child_price_usd": 20, "child_free_under_age": 2},
+      "flags": []
+    },
+    {
+      "id": "far-zoo", "name": "Far Zoo", "metro": "test", "lat": 38.5, "lng": -121.5,
+      "programs": ["AZA"], "reciprocity_overrides": {"AZA": "fifty_percent"},
+      "tiers": [
+        {"name": "Family", "annual_price_usd": 95, "programs_unlocked": ["AZA"], "adults_admitted": 2, "children_admitted": 6, "named_guests_allowed": 0, "child_free_under_age": 2, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 25, "child_price_usd": 18, "child_free_under_age": 2},
+      "flags": []
+    },
+    {
+      "id": "sf-moma2", "name": "SF Modern", "metro": "test", "lat": 37.7857, "lng": -122.4011,
+      "programs": ["MARP"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Reciprocal", "annual_price_usd": 160, "programs_unlocked": ["MARP"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 2, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 30, "child_price_usd": 0, "child_free_under_age": 18},
+      "flags": []
+    },
+    {
+      "id": "small-tier-art", "name": "Small Tier Art", "metro": "test", "lat": 37.79, "lng": -122.40,
+      "programs": ["NARM"], "reciprocity_overrides": {},
+      "tiers": [
+        {"name": "Dual", "annual_price_usd": 90, "programs_unlocked": ["NARM"], "adults_admitted": 2, "children_admitted": 0, "named_guests_allowed": 0, "child_free_under_age": 3, "reciprocity_explicit": true},
+        {"name": "Household", "annual_price_usd": 175, "programs_unlocked": ["NARM"], "adults_admitted": 2, "children_admitted": 4, "named_guests_allowed": 2, "child_free_under_age": 3, "reciprocity_explicit": true}
+      ],
+      "general_admission": {"adult_price_usd": 18, "child_price_usd": 10, "child_free_under_age": 3},
+      "flags": []
+    }
+  ]
+}

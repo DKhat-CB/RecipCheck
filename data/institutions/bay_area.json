@@ -19,7 +19,8 @@
     "last_verified": null,
     "confidence": 0.0,
     "flags": [
-      "non_participating"
+      "non_participating",
+      "needs_manual"
     ],
     "notes": "Spec edge case: historically has not honored reciprocal admission; verify and treat on own economics."
   },
@@ -36,14 +37,19 @@
     ],
     "reciprocity_overrides": {},
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://www.calacademy.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
+    "last_verified": "2026-06-29",
+    "confidence": 0.5,
     "flags": [
-      "non_participating"
+      "non_participating",
+      "needs_manual"
     ],
     "notes": "Spec edge case: historically has not honored reciprocal admission; verify and treat on own economics."
   },
@@ -66,7 +72,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -82,13 +90,20 @@
     ],
     "reciprocity_overrides": {},
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://www.sfmoma.org/join-give/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.1,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": "Spec: reciprocity runs through MARP (in phase-1 scope); should resolve as covered."
   },
   {
@@ -103,14 +118,72 @@
       "NARM"
     ],
     "reciprocity_overrides": {},
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Art 101",
+        "annual_price_usd": null,
+        "programs_unlocked": [],
+        "adults_admitted": null,
+        "children_admitted": null,
+        "named_guests_allowed": null,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": null,
+        "programs_unlocked": [],
+        "adults_admitted": null,
+        "children_admitted": null,
+        "named_guests_allowed": null,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Young Professional",
+        "annual_price_usd": null,
+        "programs_unlocked": [],
+        "adults_admitted": null,
+        "children_admitted": null,
+        "named_guests_allowed": null,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Gift",
+        "annual_price_usd": null,
+        "programs_unlocked": [],
+        "adults_admitted": null,
+        "children_admitted": null,
+        "named_guests_allowed": null,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Patron",
+        "annual_price_usd": null,
+        "programs_unlocked": [],
+        "adults_admitted": null,
+        "children_admitted": null,
+        "named_guests_allowed": null,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://sjmusart.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.5,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   },
   {
@@ -132,7 +205,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -154,7 +229,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -177,7 +254,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -193,13 +272,20 @@
     ],
     "reciprocity_overrides": {},
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://bayareadiscoverymuseum.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.1,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   },
   {
@@ -215,13 +301,20 @@
     ],
     "reciprocity_overrides": {},
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://chabotspace.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.1,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   },
   {
@@ -243,7 +336,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -265,7 +360,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -287,7 +384,9 @@
     ],
     "last_verified": null,
     "confidence": 0.0,
-    "flags": [],
+    "flags": [
+      "needs_manual"
+    ],
     "notes": ""
   },
   {
@@ -304,14 +403,72 @@
     "reciprocity_overrides": {
       "AZA": "fifty_percent"
     },
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Individual Membership",
+        "annual_price_usd": 119.0,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Dual Membership",
+        "annual_price_usd": 169.0,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 0,
+        "named_guests_allowed": 1,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family & Friends Membership",
+        "annual_price_usd": 229.0,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": 4,
+        "named_guests_allowed": 0,
+        "child_free_under_age": 17,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family & Friends Plus Membership",
+        "annual_price_usd": 279.0,
+        "programs_unlocked": [],
+        "adults_admitted": 3,
+        "children_admitted": 4,
+        "named_guests_allowed": 1,
+        "child_free_under_age": 17,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family & Friends Deluxe Membership",
+        "annual_price_usd": 329.0,
+        "programs_unlocked": [],
+        "adults_admitted": 4,
+        "children_admitted": 4,
+        "named_guests_allowed": 2,
+        "child_free_under_age": 17,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://www.oaklandzoo.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.7,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   },
   {
@@ -329,13 +486,20 @@
       "AZA": "fifty_percent"
     },
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://www.sfzoo.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.1,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   },
   {
@@ -352,14 +516,72 @@
     "reciprocity_overrides": {
       "AZA": "fifty_percent"
     },
-    "tiers": [],
-    "general_admission": null,
+    "tiers": [
+      {
+        "name": "Ocean Advocate",
+        "annual_price_usd": 500.0,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": null,
+        "named_guests_allowed": 2,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Family",
+        "annual_price_usd": 295.0,
+        "programs_unlocked": [],
+        "adults_admitted": 2,
+        "children_admitted": null,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Individual",
+        "annual_price_usd": 125.0,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Senior",
+        "annual_price_usd": 95.0,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      },
+      {
+        "name": "Student",
+        "annual_price_usd": 75.0,
+        "programs_unlocked": [],
+        "adults_admitted": 1,
+        "children_admitted": 0,
+        "named_guests_allowed": 0,
+        "child_free_under_age": null,
+        "reciprocity_explicit": false
+      }
+    ],
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://www.montereybayaquarium.org/membership"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.5,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": "~75mi from SF, inside the 80mi frontier. Reciprocity via AZA is typically 50%, not free."
   },
   {
@@ -376,13 +598,20 @@
     ],
     "reciprocity_overrides": {},
     "tiers": [],
-    "general_admission": null,
+    "general_admission": {
+      "adult_price_usd": null,
+      "child_price_usd": null,
+      "child_free_under_age": null
+    },
     "source_urls": [
       "https://filoli.org/membership/"
     ],
-    "last_verified": null,
-    "confidence": 0.0,
-    "flags": [],
+    "last_verified": "2026-06-29",
+    "confidence": 0.1,
+    "flags": [
+      "needs_manual",
+      "roster_page_conflict"
+    ],
     "notes": ""
   }
 ]
