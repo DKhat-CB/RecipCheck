@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RecipCheck — find the cheapest membership that covers your visits</title>
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'&gt;&lt;text y='14' font-size='14'&gt;🎟️&lt;/text&gt;&lt;/svg&gt;" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <h1>RecipCheck</h1>
+      <p class="tagline">The cheapest museum membership that covers everywhere you actually go —
+        worked out through reciprocal-admission programs.</p>
+      <p class="scope">Phase 1 · Bay Area &amp; NYC</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="form" class="panel" autocomplete="off">
+      <div class="step">
+        <div class="field">
+          <label for="metro">Metro</label>
+          <select id="metro"></select>
+        </div>
+        <div class="field">
+          <label for="zip">Home ZIP</label>
+          <input id="zip" inputmode="numeric" maxlength="5" placeholder="e.g. 94110" />
+          <p class="hint" id="zip-hint"></p>
+        </div>
+      </div>
+
+      <fieldset class="block">
+        <legend>Who's in the family?</legend>
+        <p class="hint">Ages, not just a count — toddlers under the free age usually need no coverage,
+          and ages drive how big a tier you need.</p>
+        <div id="ages" class="chips"></div>
+        <button type="button" class="ghost" id="add-age">+ add a person</button>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Where do you want to go?</legend>
+        <p class="hint">Up to five places, with how many times a year you'd visit each.</p>
+        <div id="targets"></div>
+        <button type="button" class="ghost" id="add-target">+ add a place</button>
+      </fieldset>
+
+      <details id="advanced" class="block advanced">
+        <summary>More options</summary>
+        <div class="grid">
+          <div class="field">
+            <label for="objective">Goal</label>
+            <select id="objective">
+              <option value="must_cover_all">Cover all my places</option>
+              <option value="prioritize_frequency">Cover the most visits I can</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cap">Max cards to hold</label>
+            <select id="cap"><option value="1">1</option><option value="2" selected>2</option></select>
+          </div>
+          <div class="field">
+            <label for="guests">Typical extra guests</label>
+            <input id="guests" type="number" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label for="window">Visit window (months)</label>
+            <input id="window" type="number" min="1" value="12" />
+          </div>
+          <div class="field">
+            <label for="anchor-mode">Home base</label>
+            <select id="anchor-mode">
+              <option value="cheapest">Cheapest coverage anywhere</option>
+              <option value="anchor">Best tier at a place I'll visit anyway</option>
+            </select>
+          </div>
+          <div class="field" id="anchor-place-field" hidden>
+            <label for="anchor-place">…which place</label>
+            <select id="anchor-place"></select>
+          </div>
+          <div class="field span2">
+            <label for="existing">Memberships you already hold</label>
+            <select id="existing" multiple size="3"></select>
+          </div>
+          <label class="check span2">
+            <input type="checkbox" id="unplanned" />
+            Value unplanned visits (use total reach as a tiebreaker)
+          </label>
+        </div>
+      </details>
+
+      <button type="submit" class="primary" id="go">Find my membership</button>
+    </form>
+
+    <section id="results" class="results" hidden></section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Reciprocal programs: NARM · ROAM · MARP · ASTC · AZA · AHS · ACM · Time Travelers.
+      Distances are linear (great-circle) radius, the basis these programs actually use.</p>
+    <p id="build-stamp" class="muted"></p>
+  </footer>
+
+  <script src="optimizer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

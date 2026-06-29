@@ -1,0 +1,44 @@
+[
+  {
+    "name": "local_science_90mi_block",
+    "inputs": {"ages": [40, 38, 8], "home": [37.7749, -122.4194], "guests": 0,
+      "targets": [{"id": "sf-sci", "visits_per_year": 4}],
+      "objective": "must_cover_all", "membership_cap": 2, "anchor": {"mode": "cheapest"},
+      "existing": [], "value_unplanned": false, "visit_window_months": 12}
+  },
+  {
+    "name": "two_cards_span_programs",
+    "inputs": {"ages": [40, 38, 8], "home": [37.7749, -122.4194], "guests": 0,
+      "targets": [{"id": "sac-art-b", "visits_per_year": 3}, {"id": "sf-moma2", "visits_per_year": 3}],
+      "objective": "must_cover_all", "membership_cap": 2, "anchor": {"mode": "cheapest"},
+      "existing": [], "value_unplanned": false, "visit_window_months": 12}
+  },
+  {
+    "name": "guests_force_escalation",
+    "inputs": {"ages": [40, 38], "home": [37.7749, -122.4194], "guests": 2,
+      "targets": [{"id": "sac-art-b", "visits_per_year": 2}],
+      "objective": "must_cover_all", "membership_cap": 2, "anchor": {"mode": "cheapest"},
+      "existing": [], "value_unplanned": false, "visit_window_months": 12}
+  },
+  {
+    "name": "fifty_percent_breaks_full_coverage",
+    "inputs": {"ages": [40, 38, 8], "home": [37.7749, -122.4194], "guests": 0,
+      "targets": [{"id": "sf-zoo", "visits_per_year": 3}, {"id": "far-zoo", "visits_per_year": 3}],
+      "objective": "must_cover_all", "membership_cap": 1, "anchor": {"mode": "cheapest"},
+      "existing": [], "value_unplanned": false, "visit_window_months": 12}
+  },
+  {
+    "name": "prioritize_frequency_drops_low",
+    "inputs": {"ages": [40, 38, 8], "home": [37.7749, -122.4194], "guests": 0,
+      "targets": [{"id": "sac-art-b", "visits_per_year": 10}, {"id": "sf-sci", "visits_per_year": 1}],
+      "objective": "prioritize_frequency", "membership_cap": 1, "anchor": {"mode": "cheapest"},
+      "existing": [], "value_unplanned": false, "visit_window_months": 12}
+  },
+  {
+    "name": "existing_pre_covers",
+    "inputs": {"ages": [40, 38, 8], "home": [37.7749, -122.4194], "guests": 0,
+      "targets": [{"id": "sac-art-b", "visits_per_year": 2}],
+      "objective": "must_cover_all", "membership_cap": 2, "anchor": {"mode": "cheapest"},
+      "existing": ["sf-art-a"], "value_unplanned": false, "visit_window_months": 12}
+  }
+]
