@@ -125,6 +125,12 @@ details.advanced[open] summary::before { content: "▾ "; }
 .rec-item .who { font-weight: 700; }
 .rec-item .tier { color: var(--muted); font-size: 14px; }
 .rec-item .price { font-weight: 700; white-space: nowrap; }
+.verify { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; }
+.verify a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.verify a:hover { text-decoration: underline; }
+.verify .vdate { color: var(--muted); }
+.verify .vapprox { color: var(--warn); background: var(--warn-soft); padding: 1px 7px; border-radius: 999px; font-weight: 600; }
+.disclaimer { margin: 14px 0 0; font-size: 12.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 12px; }
 .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
   padding: 2px 8px; border-radius: 999px; margin-left: 6px; }
 .pill.prog { background: var(--accent-soft); color: var(--accent); }

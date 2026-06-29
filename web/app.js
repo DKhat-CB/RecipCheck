@@ -207,13 +207,40 @@
       const tier = el("div", "tier", `${r.tier_name} membership`);
       for (const p of r.programs_unlocked) tier.append(pill(p));
       left.append(tier);
+      const v = verifyLine(r.institution_id);
+      if (v) left.append(v);
       item.append(left);
       item.append(el("div", "price", money(r.annual_price_usd)));
       list.append(item);
     }
     c.append(list);
+    c.append(disclaimer());
     return c;
   }
+
+  // Provenance: "verify ↗" link to the institution's own page + when it was last checked.
+  function verifyLine(id) {
+    const inst = DATA.institutions.find((i) => i.id === id);
+    if (!inst) return null;
+    const url = (inst.source_urls || [])[0];
+    const line = el("div", "verify");
+    if (url) {
+      const a = el("a", null, "verify price ↗");
+      a.href = url; a.target = "_blank"; a.rel = "noopener";
+      line.append(a);
+    }
+    if (inst.last_verified) line.append(el("span", "vdate", `checked ${inst.last_verified}`));
+    if ((inst.flags || []).includes("price_approximate")) line.append(el("span", "vapprox", "approx."));
+    return line.childNodes.length ? line : null;
+  }
+
+  function disclaimer() {
+    return el("p", "disclaimer",
+      "Prices are best-effort and reprice ~yearly — confirm on each institution's own page " +
+      "(the <em>verify ↗</em> links) before relying on a number.");
+  }
+
+  function pill(text) { const p = el("span", "pill prog", text); return p; }
 
   function pill(text) { const p = el("span", "pill prog", text); return p; }
 
