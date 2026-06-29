@@ -782,36 +782,28 @@
     "lat": 37.4699,
     "lng": -122.3186,
     "membership_url": "https://filoli.org/membership/",
-    "programs": [
-      "AHS",
-      "NARM"
-    ],
+    "programs": [],
     "reciprocity_overrides": {},
     "tiers": [
       {
         "name": "Household",
         "annual_price_usd": 140,
-        "programs_unlocked": [
-          "AHS"
-        ],
+        "programs_unlocked": [],
         "adults_admitted": 2,
         "children_admitted": 4,
         "named_guests_allowed": 0,
         "child_free_under_age": 5,
-        "reciprocity_explicit": true
+        "reciprocity_explicit": false
       },
       {
         "name": "Premium",
         "annual_price_usd": 275,
-        "programs_unlocked": [
-          "AHS",
-          "NARM"
-        ],
+        "programs_unlocked": [],
         "adults_admitted": 2,
         "children_admitted": 4,
         "named_guests_allowed": 2,
         "child_free_under_age": 5,
-        "reciprocity_explicit": true
+        "reciprocity_explicit": false
       }
     ],
     "general_admission": {

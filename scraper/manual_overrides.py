@@ -102,9 +102,12 @@ OVERRIDES: dict[str, dict] = {
         "tiers": [tier("Individual", 125, ["AZA"], adults=1, free=5),
                   tier("Ocean Advocate", 500, ["AZA"], adults=2, kids=4, guests=2, free=5)],
         "src": ["https://www.montereybayaquarium.org/support-us/become-a-member"]},
-    "wood-filoli": {"ga": ga(45, 35, 5),
-        "tiers": [tier("Household", 140, ["AHS"], adults=2, kids=4, free=5),
-                  tier("Premium", 275, ["AHS", "NARM"], adults=2, kids=4, guests=2, free=5)],
+    # Reciprocal participation could NOT be confirmed from Filoli's own page (the prices were
+    # sourced; the AHS/NARM tags were an unverified Tier-1 guess and are dropped). Treated as
+    # join-direct until a primary source confirms otherwise.
+    "wood-filoli": {"programs": [], "ga": ga(45, 35, 5),
+        "tiers": [tier("Household", 140, adults=2, kids=4, free=5),
+                  tier("Premium", 275, adults=2, kids=4, guests=2, free=5)],
         "src": ["https://filoli.org/support/membership/"]},
 
     # ============================================================ NYC

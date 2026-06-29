@@ -1,7 +1,7 @@
 {
   "build": {
-    "build_id": "20260629-160757",
-    "built_at": "2026-06-29T16:07:57.641314+00:00",
+    "build_id": "20260629-170313",
+    "built_at": "2026-06-29T17:03:13.914269+00:00",
     "stale_after_days": 120
   },
   "programs": {
@@ -880,36 +880,28 @@
       "lat": 37.4699,
       "lng": -122.3186,
       "membership_url": "https://filoli.org/membership/",
-      "programs": [
-        "AHS",
-        "NARM"
-      ],
+      "programs": [],
       "reciprocity_overrides": {},
       "tiers": [
         {
           "name": "Household",
           "annual_price_usd": 140,
-          "programs_unlocked": [
-            "AHS"
-          ],
+          "programs_unlocked": [],
           "adults_admitted": 2,
           "children_admitted": 4,
           "named_guests_allowed": 0,
           "child_free_under_age": 5,
-          "reciprocity_explicit": true
+          "reciprocity_explicit": false
         },
         {
           "name": "Premium",
           "annual_price_usd": 275,
-          "programs_unlocked": [
-            "AHS",
-            "NARM"
-          ],
+          "programs_unlocked": [],
           "adults_admitted": 2,
           "children_admitted": 4,
           "named_guests_allowed": 2,
           "child_free_under_age": 5,
-          "reciprocity_explicit": true
+          "reciprocity_explicit": false
         }
       ],
       "general_admission": {
